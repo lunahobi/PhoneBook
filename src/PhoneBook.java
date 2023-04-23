@@ -18,7 +18,7 @@ public class PhoneBook {
         }
     }
 
-    static void searchByPhoneNumber(String phoneNumber) {
+    public static void searchByPhoneNumber(String phoneNumber) {
 
         if (directory.containsKey(phoneNumber)) {
             String last_name = directory.get(phoneNumber).last_name;
