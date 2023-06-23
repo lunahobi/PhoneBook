@@ -1,15 +1,16 @@
-import java.security.spec.ECField;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
+        PhoneBook pb = new PhoneBook();
         int choice;
         while (true){
             System.out.println("1. Добавить нового абонента");
             System.out.println("2. Удалить абонента");
             System.out.println("3. Поиск фамилии абонента по номеру телефона");
-            System.out.println("4. Выход");
+            System.out.println("4. Показать контакты");
+            System.out.println("5. Выход");
             System.out.print("Введите номер действия: ");
             choice = in.nextInt();
             in.nextLine();
@@ -30,19 +31,22 @@ public class Main {
                     }
                     System.out.print("Введите номер телефона: ");
                     String phoneNumber = in.nextLine();
-                    PhoneBook.addEntry(phoneNumber, new Human(last_name, first_name, second_name));
+                    pb.addEntry(phoneNumber, new Human(last_name, first_name, second_name));
                     break;
                 case 2:
                     System.out.print("Введите номер телефона абонента, которого хотите удалить: ");
                     String phone = in.nextLine();
-                    PhoneBook.deleteEntry(phone);
+                    pb.deleteEntry(phone);
                     break;
                 case 3:
                     System.out.print("Введите номер телефона для поиска фамилии абонента: ");
                     String p = in.nextLine();
-                    PhoneBook.searchByPhoneNumber(p);
+                    pb.searchByPhoneNumber(p);
                     break;
                 case 4:
+                    pb.showContacts();
+                    break;
+                case 5:
                     System.exit(0);
                     break;
                 default:
